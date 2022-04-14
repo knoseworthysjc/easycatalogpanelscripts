@@ -1,5 +1,5 @@
 var rewards = myRecord["rewards_points"];
-var regex = /Buy(.*),/gim
+var regex = /Buy|Spend(.*),/gim
 var matches = rewards.match(regex)
 var match;
 if(matches != null){
