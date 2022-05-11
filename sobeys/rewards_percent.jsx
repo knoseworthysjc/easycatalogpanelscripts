@@ -1,5 +1,5 @@
 var rewards = myRecord["rewards_points"];
-var regex = /\d+%|\d\.\d+\sOff|/gim
+var regex = /\d+%|\d\.\d+\sOff|\d+¢\sOff/gim
 var matches = rewards.match(regex)
 var match;
 if(matches != null){
