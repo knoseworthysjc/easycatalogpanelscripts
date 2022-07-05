@@ -1,12 +1,16 @@
-var rewards = myRecord["rewards_points"];
-var regex = /\d+%|\d\.\d+\sOff|\d+¢\sOff/gim
-var matches = rewards.match(regex)
-var match;
-if(matches != null){
-    
-match = matches[0].replace("OFF","");
+local rec = field("rewards_points")
 
-} else {
-    match=matches;
-}
-match;
+if rec == "" then return "" else
+local regexa = rec:match("%d+%%")
+local regexb = rec:match("%d+%.%d+%sOFF")
+local regexc = rec:match("%d+¢")
+
+if(regexa) then
+    ret=regexa
+ elseif (regexb) then
+    ret=regexb:gsub(" OFF","")
+elseif (regexc) then
+    ret=regexc
+else ret= "" end
+return ret
+end
