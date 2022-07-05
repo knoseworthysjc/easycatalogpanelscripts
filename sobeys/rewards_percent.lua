@@ -1,12 +1,17 @@
 local rec = field("rewards_points")
-local regexa = rec:match("%d+\%")
-local regexb = rec:match("%d\.%d+%sOff")
-local regexc = rec:match("%d+¢%sOff")
+if rec == "" then return "" else
+local regexa = rec:match("%d+%%")
+local regexb = rec:match("%d+%.%d+%sOFF")
+local regexc = rec:match("%d+¢")
 
 if(regexa) then
-    return regexa
+    ret=regexa
  elseif (regexb) then
-    return regexb
+    ret=regexb:gsub(" OFF","")
 elseif (regexc) then
-    return regexc
-else return "" end
+    ret=regexc
+else ret= "" end
+
+return ret
+
+end
