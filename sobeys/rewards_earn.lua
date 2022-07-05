@@ -1,11 +1,39 @@
 local rec = field("rewards_points")
-local regexa = rec:match("Earn(.*)%d+")
-local regexb = rec:match("Pay(.*)%d+(.*)%d+")
-local regexc = rec:match("%d+%sAir")
+
+local regexa = rec:match("%d+%sAir")
+
+local regexb = rec:match("Get%s%d+.+%s")
+
+local regexc = rec:match("Get one")
+
+
+
+
 
 if(regexa)then
-    return regexa
-elseif(regexb & regexc) then
-    return regexb
-else return ""
+
+ret = regexa
+
+elseif(regexb) then
+
+ret=regexb
+
+elseif(regexc) then
+
+ret = "one"
+
+else ret= ""
+
+end
+
+
+
+if ret == "" then 
+
+return ""
+
+else
+
+return ret
+
 end
