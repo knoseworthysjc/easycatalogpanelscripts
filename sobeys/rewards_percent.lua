@@ -13,5 +13,4 @@ elseif (regexc) then
 else ret= "" end
 
 return ret
-
 end
