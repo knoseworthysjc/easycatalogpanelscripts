@@ -1,11 +1,11 @@
 ot = field("offer_type")
-if ot == "Multi" then 
+if ot == "Multi" or ot == "Multi-Save" then 
     pt = "Multi"
     pricerec = field("multi_save")
 elseif field("unit") == 'kg' then
     pt = "LB"
     pricerec = field("priceperlb")
-else pt = "EV"
+else 
     pt=ot
     pricerec = field("event_price")
 end
