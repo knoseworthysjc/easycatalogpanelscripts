@@ -1,15 +1,12 @@
 local rec = field("rewards_points")
 local regexa = rec:match("%d+%sAir")
 local regexb = rec:match("%d+%sScene")
-local regexc = rec:match("Get%s.+%s")
 if(regexa)then
 y = regexa
 ret = y:gsub("Air","")
 elseif(regexb) then
 y = regexb
 ret = y:gsub("Scene","")
-elseif(regexc) then
-ret = regexc
 else ret= ""
 end
 
