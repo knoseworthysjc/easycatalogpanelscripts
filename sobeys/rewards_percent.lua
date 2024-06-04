@@ -18,7 +18,8 @@ if(regexa) then
 elseif (regexc) then
     ret=regexc
 elseif (regexd) then
-    ret=regexd:gsub(" OFF","")
+    reta=regexd:gsub(" OFF","")
+    if rec:match("%%") then ret = "%"..reta else ret="$"..reta end 
 else ret= "" end
 else ret="" end
 
